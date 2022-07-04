@@ -1,4 +1,4 @@
-namespace CollegeScoreApp
+namespace CollegeScoreApp.DTN
 {
     public class WeatherForecast
     {

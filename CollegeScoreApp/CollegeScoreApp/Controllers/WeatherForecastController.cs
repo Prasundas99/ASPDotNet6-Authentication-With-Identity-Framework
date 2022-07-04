@@ -1,3 +1,4 @@
+using CollegeScoreApp.DTN;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CollegeScoreApp.Controllers
