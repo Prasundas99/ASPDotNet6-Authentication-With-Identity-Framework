@@ -42,6 +42,7 @@ namespace CollegeScoreApp.Controllers
         [HttpPost]
         public async Task<ActionResult<List<CollegeList>>> AddCollege(CollegeList collegeDTO)
         {
+            // _mapper.<college>(collegeDTO);
             var college = _mapper.Map<Colleges>(collegeDTO);
             _context.Add(college);
             return Ok(college);
