@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CollegeScoreApp.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CollegeScoreApp.Data
 {
@@ -7,5 +8,7 @@ namespace CollegeScoreApp.Data
          public  AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
           {
           }
+
+        public DbSet<Colleges> Colleges { get; set; }
     }
 }
