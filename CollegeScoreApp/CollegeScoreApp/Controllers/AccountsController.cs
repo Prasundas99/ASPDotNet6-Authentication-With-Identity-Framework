@@ -3,8 +3,13 @@ using CollegeScoreApp.DTN;
 using CollegeScoreApp.DTO;
 using CollegeScoreApp.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Identity;
-
+using System.Text;
 
 namespace CollegeScoreApp.Controllers
 {
@@ -12,11 +17,11 @@ namespace CollegeScoreApp.Controllers
     [Route("auth/[controller]")]
     public class AccountsController : ControllerBase
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly AppDbContext _context;
-        public AccountsController(AppDbContext context, UserManager<User> userManager,
-            SignInManager<User> signInManager)
+        public AccountsController(AppDbContext context, UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager)
         {
             _context = context;
             _userManager = userManager;
@@ -35,7 +40,7 @@ namespace CollegeScoreApp.Controllers
         {
             if (request == null)
                 return BadRequest("Username or Password is Empty");
-            var user = new User { Username = request.Username };
+            var user = new IdentityUser { UserName = request.Username };
             var result = await _userManager.CreateAsync(user, request.Password);
 
             if (result.Succeeded)
@@ -54,7 +59,7 @@ namespace CollegeScoreApp.Controllers
 
             if (result.Succeeded)
             {
-                return Ok(result);
+                return Ok();
             }
             else
             {
