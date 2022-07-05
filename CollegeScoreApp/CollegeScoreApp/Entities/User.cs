@@ -16,7 +16,7 @@ namespace CollegeScoreApp.Entities
         {
             Id = Guid.NewGuid();
             CreatedOn = DateTime.Now;
-            Name = "UnNamed";
+            Username = "UnNamed";
             
         }
     }
