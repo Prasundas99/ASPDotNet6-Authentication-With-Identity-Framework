@@ -10,5 +10,6 @@ namespace CollegeScoreApp.Data
           }
 
         public DbSet<Colleges> Colleges { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

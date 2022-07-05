@@ -7,7 +7,7 @@ namespace CollegeScoreApp.Entities
         public Guid Id { get; set; }
         [Required]
         [StringLength(5)]
-        public string Name { get; set; }
+        public string Username { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public DateTime CreatedOn { get; set; }
