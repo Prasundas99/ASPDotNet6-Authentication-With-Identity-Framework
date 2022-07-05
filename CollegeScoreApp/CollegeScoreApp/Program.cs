@@ -1,6 +1,5 @@
 using CollegeScoreApp.Data;
 using Microsoft.EntityFrameworkCore;
-using AutoMapper;
 using CollegeScoreApp.Utility.Profile;
 
 var builder = WebApplication.CreateBuilder(args);
