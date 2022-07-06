@@ -6,11 +6,11 @@ namespace CollegeScoreApp.Data
 {
     public class AppDbContext :  IdentityDbContext
     {
-         public  AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
           {
           }
 
         public DbSet<Colleges> Colleges { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Students> Students { get; set; }
     }
 }
